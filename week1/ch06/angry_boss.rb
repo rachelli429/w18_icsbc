@@ -5,6 +5,6 @@
 
 ### Your Code Here ###
 
-puts 'What do you want?'.upcase
+puts 'WHAT DO YOU WANT?'
 answer = gets.chomp 
-puts 'Whaddaya mean '.upcase + '"' + answer.upcase + '"?!? You\'re fired!!'.upcase 
+puts 'WHADDAYA MEAN ' + '"' + answer.upcase + '"?!? YOU\'RE FIRED!!'
