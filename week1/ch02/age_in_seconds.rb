@@ -14,4 +14,6 @@
 # days: 8 (mar), 30 (apr), 31 (may), 30 (jun), 31 (jul), 31 (aug), 30 (sep), 31 (oct), 30 (nov), 28 (dec)
 # leap years + regular years + days in 2018
 
-puts (36 * 366 * 24 * 60 * 60) + (114 * 365 * 24 * 60 * 60) + ((8 + 28 + 4 * 30 + 4 * 31) * 24 * 60 * 60)
+seconds_in_day = 24 * 60 * 60
+
+puts (36 * 366 * seconds_in_day) + (114 * 365 * seconds_in_day) + ((8 + 28 + 4 * 30 + 4 * 31) * seconds_in_day)
