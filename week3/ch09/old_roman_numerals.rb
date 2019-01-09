@@ -5,35 +5,10 @@ def romanize x
 
   # ones digit 
   ones = x % 10 
-  roman = 'I' * (ones % 5)
-  if ones >= 5
-    roman = 'V' + roman
-  end
-  
-  #tens digit
   tens = (x / 10) % 10
-  roman = ('X' * (tens % 5)) + roman
-  if tens >= 5
-    roman = 'L' + roman
-  end
-  
-  #hundreds digit
   hundreds = (x / 100) % 10
-  roman = ('C' * (hundreds % 5)) + roman
-  if hundreds >= 5
-    roman = 'D' + roman
-  end
   
-  #thousands digit
-  if x > 1000
-    roman = 'M' + roman
-  end
+  num = 'M' * (x / 1000) + 'D' * (hundreds / 5) + 'C' * (hundreds % 5) + 'L' * (tens / 5) + 'X' * (tens % 5) + 'V' * (ones / 5) + 'I' * (ones % 5)
   
-  return roman
+  return num
 end
-
-puts romanize 10
-puts romanize 100
-puts romanize 253
-puts romanize 5
-puts romanize 2638
