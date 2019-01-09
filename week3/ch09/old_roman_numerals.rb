@@ -1,5 +1,4 @@
-# when passed an integer between 1 and 3000, returns a string containing 
-# the proper old-school Roman numeral 
+# when passed an integer between 1 and 3000, returns a string containing the proper old-school Roman numeral 
 
 def romanize x
 
