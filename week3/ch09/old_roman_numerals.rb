@@ -3,7 +3,6 @@
 
 def romanize x
 
-  # ones digit 
   ones = x % 10 
   tens = (x / 10) % 10
   hundreds = (x / 100) % 10
