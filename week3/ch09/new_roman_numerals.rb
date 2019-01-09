@@ -1,54 +1,41 @@
-# when passed an integer between 1 and 3000, returns a string containing 
-# the proper old-school Roman numeral 
+# when passed an integer between 1 and 3000, returns a string containing the "modern" roman numeral
 
 def romanize x
 
   # ones digit 
   ones = x % 10 
   if ones == 4
-    roman = 'IV'
+    num = 'IV'
   elsif ones == 9
-    roman = 'IX'
+    num = 'IX'
   else
-    roman = 'I' * (ones % 5)
-    if ones >= 5
-      roman = 'V' + roman
-    end
+    num = 'V' * (ones / 5) + 'I' * (ones % 5)
   end
   
   #tens digit
   tens = (x / 10) % 10
   if tens == 4
-    roman = 'XL' + roman
+    num = 'XL' + num
   elsif tens == 9
-    roman = 'XC' + roman
+    num = 'XC' + num
   else
-    roman = ('X' * (tens % 5)) + roman
-    if tens >= 5
-      roman = 'L' + roman
-    end
+    num = 'L' * (tens / 5) + 'X' * (tens % 5) + num
   end
   
   #hundreds digit
   hundreds = (x / 100) % 10
   if hundreds == 4
-    roman = 'CD' + roman
+    num = 'CD' + num
   elsif hundreds == 9
-    roman = 'CM' + roman
+    num = 'CM' + num
   else
-    roman = ('C' * (hundreds % 5)) + roman
-    if hundreds >= 5
-      roman = 'D' + roman
-    end
+    num = 'D' * (hundreds / 5) + 'C' * (hundreds % 5) + num
   end
   
   #thousands digit
-  if x > 1000
-    roman = 'M' + roman
-  end
-  
-  return roman 
+  num = 'M' * (x / 1000) + num
+
+  return num 
 end
 
-puts romanize 449
-puts romanize 49
+puts romanize 949
