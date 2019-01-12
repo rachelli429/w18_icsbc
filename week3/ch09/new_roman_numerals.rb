@@ -1,41 +1,43 @@
 # when passed an integer between 1 and 3000, returns a string containing the "modern" roman numeral
 
-def romanize x
-
-  # ones digit 
-  ones = x % 10 
-  if ones == 4
-    num = 'IV'
-  elsif ones == 9
-    num = 'IX'
+def new_romanize x
+  
+  if x < 1 || x > 3000
+    return nil
+  end
+  
+  #thousands digit
+  num = 'M' * (x / 1000)
+  
+  #hundreds digit
+  hundreds = (x / 100) % 10
+  if hundreds == 4
+    num = num + 'CD'
+  elsif hundreds == 9
+    num = num + 'CM'
   else
-    num = 'V' * (ones / 5) + 'I' * (ones % 5)
+    num = num + 'D' * (hundreds / 5) + 'C' * (hundreds % 5)
   end
   
   #tens digit
   tens = (x / 10) % 10
   if tens == 4
-    num = 'XL' + num
+    num = num + 'XL'
   elsif tens == 9
-    num = 'XC' + num
+    num = num + 'XC'
   else
-    num = 'L' * (tens / 5) + 'X' * (tens % 5) + num
+    num = num + 'L' * (tens / 5) + 'X' * (tens % 5)
   end
-  
-  #hundreds digit
-  hundreds = (x / 100) % 10
-  if hundreds == 4
-    num = 'CD' + num
-  elsif hundreds == 9
-    num = 'CM' + num
-  else
-    num = 'D' * (hundreds / 5) + 'C' * (hundreds % 5) + num
-  end
-  
-  #thousands digit
-  num = 'M' * (x / 1000) + num
 
+  # ones digit 
+  ones = x % 10 
+  if ones == 4
+    num = num + 'IV'
+  elsif ones == 9
+    num = num + 'IX'
+  else
+    num = num + 'V' * (ones / 5) + 'I' * (ones % 5)
+  end
+  
   return num 
 end
-
-puts romanize 949
