@@ -8,9 +8,10 @@ def new_romanize x
   
   #thousands digit
   num = 'M' * (x / 1000)
+  x = x % 1000 
   
   #hundreds digit
-  hundreds = (x / 100) % 10
+  hundreds = x / 100
   if hundreds == 4
     num = num + 'CD'
   elsif hundreds == 9
@@ -18,9 +19,10 @@ def new_romanize x
   else
     num = num + 'D' * (hundreds / 5) + 'C' * (hundreds % 5)
   end
+  x = x % 100
   
   #tens digit
-  tens = (x / 10) % 10
+  tens = x / 10 
   if tens == 4
     num = num + 'XL'
   elsif tens == 9
@@ -28,9 +30,10 @@ def new_romanize x
   else
     num = num + 'L' * (tens / 5) + 'X' * (tens % 5)
   end
+  x = x % 10
 
   # ones digit 
-  ones = x % 10 
+  ones = x 
   if ones == 4
     num = num + 'IV'
   elsif ones == 9
